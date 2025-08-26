@@ -35,7 +35,8 @@ export const handler: Handler = async (event) => {
       },
       body: JSON.stringify(dimensions),
     };
-  } catch (error) {
+  } catch (err) {
+    console.error('Upload function error:', err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Internal server error' }),

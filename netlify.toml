@@ -1,8 +1,17 @@
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
+  functions = "dist/netlify/functions"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/upload"
+  to = "/.netlify/functions/upload"
   status = 200
